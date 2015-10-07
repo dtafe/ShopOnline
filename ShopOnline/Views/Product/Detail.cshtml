@@ -1,0 +1,106 @@
+﻿@model ShopOnline.Models.EVShop20.Product
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div>
+    <img class="col-md-5" src="/images/products/@Model.Image" />
+
+    <ul class="col-md-7">
+        <li>Id: @Model.Id</li>
+        <li>Name: @Model.Name</li>
+        <li>Available: @Model.Available</li>
+        <li>Category: @Model.Category.NameVN</li>
+
+        <li>Discount: @Model.Discount</li>
+        <li>Image: @Model.Image</li>
+        <li>Latest: @Model.Latest</li>
+        <li>ProductDate: @Model.ProductDate</li>
+        <li>Quantity: @Model.Quantity</li>
+        <li>Special: @Model.Special</li>
+        <li>Supplier: @Model.Supplier.Name</li>
+        <li>UnitBrief: @Model.UnitBrief</li>
+        <li>UnitPrice: @Model.UnitPrice</li>
+        <li>Views: @Model.Views</li>
+        <li><img class="add-to-cart" data-id="@Model.Id" src="~/images/add-to-cart-blue.png" /></li>
+    </ul>
+    <div class="nn-Description"><p>Description: @Model.Description</p></div>
+</div>
+<div>
+    <fieldset class="nn-relate">
+        <legend>Hàng cùng loại</legend>
+        @foreach(var p in Model.Category.Products)
+        {
+            <a href="/Product/Detail/@p.Id">
+                <img src="~/images/products/@p.Image" />
+            </a>
+        }
+    </fieldset>
+</div>
+
+<div>
+    <fieldset class="nn-relate">
+        <legend>Hàng cùng hãng</legend>
+        @foreach (var p in Model.Supplier.Products)
+        {
+            <a href="/Product/Detail/@p.Id">
+                <img src="~/images/products/@p.Image" />
+            </a>
+        }
+    </fieldset>
+</div>
+<div>
+    <fieldset class="nn-relate">
+        <legend>Hàng đã xem</legend>
+        @foreach (var p in ViewBag.Views)
+        {
+            <a href="/Product/Detail/@p.Id">
+                <img src="/images/products/@p.Image" />
+            </a>
+        }
+    </fieldset>
+</div>
+<style>
+    .add-to-cart{
+        width: 120px;
+        height: 30px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+}
+</style>
+@section scripts{
+    <script>
+        $(function () {
+            $(".add-to-cart").click(function () {
+                pid = $(this).attr("data-id");
+                $.ajax({
+                    url: "/Cart/Add",
+                    data: {id: pid},
+                    success: function (response) {
+                        $("#nn-cart-count").html(response.Count);
+                        $("#nn-cart-total").html(response.Total);
+                    }
+                });
+
+                // hieu ung bay vao gio
+                cssfly = ".fly-effect {background:url(?);background-size:100% 100%;}";
+                src = $("#i" + pid).attr("src");
+                newcssfly = cssfly.replace("?", src);
+                $("#cart-fly").html(newcssfly);
+
+                options = { to: "#nn-cart-image", className: "fly-effect" };
+                $("#i"+pid).effect("transfer", options, 500, function () { });
+            });
+        });
+    </script>
+
+    <style id="cart-fly">
+        .fly-effect {
+            background: url(~/images/products/1003.jpg);
+            background-size: 100% 100%;
+        }
+    </style>
+}

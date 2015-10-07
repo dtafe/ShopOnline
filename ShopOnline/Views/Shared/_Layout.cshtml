@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/Slider/jssor.slider.mini.js"></script>
+</head>
+<body>
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="#"><i class="glyphicon glyphicon-phone-alt"></i> +84 981 173 708</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> phuc_ceh@hotmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><img class="fa-facebook" src="~/images/social/facebook.png" /></a></li>
+                            <li><a href="#"><img class="fa-google-plus" src="~/images/social/google-plus.png" /></a></li>
+                            <li><a href="#"><img class="fa-twitter" src="~/images/social/twitter.png" /></a></li>
+                            <li><a href="#"><img class="fa-dribbble" src="~/images/social/Youtube.gif" /></a></li>
+                            <li><a href="#"><img class="fa-linkedin" src="~/images/social/linkin.png" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <header class="nn-slider">
+            <div class="row">
+                <div class="col-md-9">
+                    <script src="~/Scripts/Slider/slider.js"></script>
+                    <div id="slider1_container" style="position: relative; top: 0; left: 0; width: 809px; height: 150px; overflow: hidden;">
+
+                        <!-- Loading Screen -->
+                        <div u="loading" style="position: absolute; top: 0; left: 0;">
+                            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000; top: 0; left: 0;width: 100%;height:100%;">
+                            </div>
+                            <div style="position: absolute; display: block; background: url(../images/loading.gif) no-repeat center center;
+                top: 0; left: 0;width: 100%;height:100%;">
+                            </div>
+                        </div>
+
+                        <!-- Slides Container -->
+                        <div u="slides" style="cursor: move; position: absolute; left: 0; top: 0; width: 809px; height: 150px; overflow: hidden;">
+                            <div><img u="image" src="~/images/products/1001.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1002.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1003.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1004.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1005.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1006.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1007.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1008.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1009.jpg" /></div>
+                            <div><img u="image" src="~/images/products/1010.jpg" /></div>
+                        </div>
+                        <link href="~/Content/Slider/bullet.css" rel="stylesheet" />
+                        <!-- bullet navigator container -->
+                        <div u="navigator" class="jssorb03" style="bottom: 4px; right: 6px;">
+                            <!-- bullet navigator item prototype -->
+                            <div u="prototype"><div u="numbertemplate"></div></div>
+                        </div>
+                        <!--#endregion Bullet Navigator Skin End -->
+                        <link href="~/Content/Slider/arrow.css" rel="stylesheet" />
+                        <!-- Arrow Left -->
+                        <span u="arrowleft" class="jssora03l" style="top: 123px; left: 8px;">
+                        </span>
+                        <!-- Arrow Right -->
+                        <span u="arrowright" class="jssora03r" style="top: 123px; right: 8px;">
+                        </span>
+                    </div>
+                    <!-- Jssor Slider End -->
+                </div>
+                <div class="col-md-3">
+                    @Html.Partial("_CartInfo")
+                </div>
+            </div>
+        </header>
+
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_Menu")
+            </div>
+        </div>
+
+        <div class="nn-sheet">
+            <div class="row">
+                <article class="col-md-9">
+                    <div class="nn-body">@RenderBody()</div>
+                </article>
+
+                <aside class="col-md-3">
+                    
+                    @Html.Partial("_Search")
+                    @Html.Action("Category", "Home")
+                    @Html.Action("Supplier", "Home")
+                    @Html.Partial("_Special")
+                </aside>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="companyinfo">
+                            <h2><span>E</span>-shopper</h2>
+                            <p>Bộ phận hỗ trợ và tư vấn & Chăm sóc khách hàng</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="~/images/home/iframe1.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Hoang Phuc</p>
+                                <h2>0981.173.708</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="~/images/home/iframe2.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Cuong Nguyen</p>
+                                <h2>0975.111.222</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="~/images/home/iframe3.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Nguyen Hoang</p>
+                                <h2>0932.000.000</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="~/images/home/iframe4.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Thai Nguyen</p>
+                                <h2>0933.333.333</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="address">
+                            <img src="~/images/home/map.png" alt="" />
+                            <p>Ho Chi Minh City(VietNamese)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Dịch vụ</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Trợ giúp mua hàng</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="#">Đặt hàng</a></li>
+                                <li><a href="#">Quà tặng</a></li>
+                                <li><a href="#">Câu hỏi liên quan</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Sane phẩm</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Mobile</a></li>
+                                <li><a href="#">Tablet</a></li>
+                                <li><a href="#">Laptop</a></li>
+                                <li><a href="#">Watch</a></li>
+                                <li><a href="#">Fashion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Chính sách</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Mua hàng</a></li>
+                                <li><a href="#">Bảo hành</a></li>
+                                <li><a href="#">Đổi hàng</a></li>
+                                <li><a href="#">Vận chuyển</a></li>
+                                <li><a href="#">Thanh toán</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Về chúng tôi</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Thông tin EShopper</a></li>
+                                <li><a href="#">Tuyển dụng</a></li>
+                                <li><a href="#">Đại lý</a></li>
+                                <li><a href="#">Đối tác</a></li>
+                                <li><a href="#">Bản quyền</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-sm-offset-1">
+                        <div class="single-widget">
+                            <h2>About Shopper</h2>
+                            <form action="#" class="searchform">
+                                <input type="text" placeholder="Your email address" />
+                                
+                                <p>Đăng ký để được cung cấp các sản phẩm mới nhất với nhiều ưu đãi</p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <p class="pull-left">Copyright © Hoang Phuc 2015</p>
+                    <p class="pull-right">Facebook <span><a target="_blank" href="http://www.fb.com/HoangPhuc10091992">Hoang Phuc</a></span></p>
+                </div>
+            </div>
+        </div>
+    </footer><!--/Footer-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/CartEffect/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/CartEffect/jquery-ui.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(function () {
+            $("#search").autocomplete({
+                source: "/Home/Search",
+                minLength: 2
+            });
+        })
+    </script>
+</body>
+</html>
